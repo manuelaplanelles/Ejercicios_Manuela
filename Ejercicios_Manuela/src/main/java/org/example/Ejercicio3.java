@@ -7,7 +7,7 @@ public class Ejercicio3 {
         int numero = teclado.nextInt();
 
         if (numero > 0) {
-            System.out.println("El número " + numero + " es POSITIVO");
+            System.out.println("El número " + numero + " es POSITIVO ");
         } else {
             if (numero < 0) {
                 System.out.println("El número " + numero + " es NEGATIVO");
