@@ -5,23 +5,31 @@ import java.util.Scanner;
 public class Ejercicio4 {
     static void main() {
         Scanner teclado = new Scanner(System.in);
+        int res;
         System.out.println("Introduce un numero: ");
-        int numero1 = teclado.nextInt();
+        int num1 = teclado.nextInt();
 
         System.out.println("Introduce otro numero: ");
-        int numero2 = teclado.nextInt();
+        int num2 = teclado.nextInt();
 
         System.out.println("Introduce otro número: ");
-        int numero3 = teclado.nextInt();
+        int num3 = teclado.nextInt();
 
 
-        if (numero1==numero2 && numero2==numero3 && numero1==numero3){
+        if (num1==num2 || num2==num3 || num1==num3){
             System.out.println("ERROR: hay números introducidos que son iguales");
+        }else{
+            if (num1<num2 && num1<num3){
+                res=num1;
+            }else{
+                if (num2<num3){
+                    res = num2;
+                }else{
+                    res = num3;
+                }
+            }
+            System.out.println("El número menor es: " + res);
         }
-
-        if (numero1>=numero2)
-
-
 
     }
 }
