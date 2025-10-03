@@ -6,9 +6,7 @@ public class Ejercicio7 {
     static void main() {
         Scanner teclado = new Scanner(System.in);
 
-        String tomate = "";
-        String aceite = "";
-        String jamon = "";
+        String tomate, aceite, jamon;
 
 
         while (true) {
