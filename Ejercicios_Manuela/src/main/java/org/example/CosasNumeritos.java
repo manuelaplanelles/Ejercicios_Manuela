@@ -17,5 +17,6 @@ public class CosasNumeritos {
         String num_derecha=num_sring.substring(2,3);
         int num_derecha_int=Integer.parseInt(num_derecha);
         System.out.println(num_derecha_int*num1);
+        System.out.println(num_derecha_int*num2);
     }
 }
