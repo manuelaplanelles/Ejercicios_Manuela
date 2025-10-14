@@ -10,13 +10,14 @@ public class CosasNumeritos {
         int num_izquierda_int=Integer.parseInt(num_izquierda);
         System.out.println(num_izquierda_int*num1);
 
-        String num_centro=num_sring.substring(0,2);
+        String num_centro=num_sring.substring(1,2);
         int num_centro_int=Integer.parseInt(num_centro);
         System.out.println(num_centro_int*num1);
 
         String num_derecha=num_sring.substring(2,3);
         int num_derecha_int=Integer.parseInt(num_derecha);
         System.out.println(num_derecha_int*num1);
+
         System.out.println(num_derecha_int*num2);
     }
 }
