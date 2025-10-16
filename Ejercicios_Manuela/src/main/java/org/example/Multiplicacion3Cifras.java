@@ -1,13 +1,17 @@
 import java.util.Scanner;
 
 public class Multiplicacion3Cifras {
-    static void main() {
+    public static void main(String[] args) {
+
+        //lector del teclado
+        Scanner teclado = new Scanner(System.in);
+
         int num1, num2;
 
         //validar num1
         do {
             System.out.print("Introduce el multiplicando (3 cifras): ");
-            num1 = sc.nextInt();
+            num1 = teclado.nextInt();
 
             if (num1 < 0) {
                 System.out.println("No se permiten números negativos.");
@@ -19,7 +23,7 @@ public class Multiplicacion3Cifras {
         //validar num2
         do {                                                        //repite el numero hasta que cumpla las condiciones
             System.out.print("Introduce el multiplicador (3 cifras): ");
-            num2 = sc.nextInt();
+            num2 = teclado.nextInt();
 
             if (num2 < 0) {                                         //condicion numero positivo
                 System.out.println("No se permiten números negativos.");
@@ -33,27 +37,27 @@ public class Multiplicacion3Cifras {
         String num_sring = Integer.toString(num2); //multiplicador
 
         String num_izquierda = num_sring.substring(0, 1);
-        int num_izquierda = Integer.parseInt(num_izquierda);
-        System.out.println(num_izquierda * num1 + "00");
+        int izquierda = Integer.parseInt(num_izquierda);
+        System.out.println(izquierda * num1);
 
         String num_centro  = num_sring.substring(1, 2);
-        int num_centro = Integer.parseInt(num_centro);
-        System.out.println(num_centro * num1 + "0");
+        int centro = Integer.parseInt(num_centro);
+        System.out.println(centro * num1);
 
         String num_derecha = num_sring.substring(2, 3);
-        int num_derecha = Integer.parseInt(num_derecha);
-        System.out.println(num_derecha * num1);
+        int derecha = Integer.parseInt(num_derecha);
+        System.out.println(derecha * num1);
 
         //calcular y mostrar
         System.out.println();
-        System.out.println(" " + num1);
-        System.out.println("x " + num2);
-        System.out.println("---------");
+        System.out.println("      " + num1);
+        System.out.println("x     " + num2);
+        System.out.println("___________");
 
-        System.out.println( (num1 * derecha) );
-        System.out.println( (num1 * centro) + "0");
-        System.out.println( (num1 * izquierda) + "00");
-        System.out.println("---------");
+        System.out.println( ("     " + num1 * derecha) );
+        System.out.println( ("     " + num1 * centro) );
+        System.out.println( ("     " + num1 * izquierda) );
+        System.out.println("___________");
 
         System.out.println(num1 * num2);
 
