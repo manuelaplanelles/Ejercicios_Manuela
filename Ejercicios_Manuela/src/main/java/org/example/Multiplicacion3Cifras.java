@@ -1,36 +1,53 @@
 import java.util.Scanner;
-
+import java.util.InputMismatchException;
 public class Multiplicacion3Cifras {
     public static void main(String[] args) {
 
-        //lector del teclado
         Scanner teclado = new Scanner(System.in);
 
-        int num1, num2;
+        int num1 = 0, num2 = 0;
 
         //validar num1
-        do {
-            System.out.print("Introduce el multiplicando (3 cifras): ");
-            num1 = teclado.nextInt();
+        boolean repetir = true;
+        while (repetir) {
+            try {
+                System.out.print("Introduce el multiplicando (3 cifras): ");
+                num1 = teclado.nextInt();
 
-            if (num1 < 0) {
-                System.out.println("No se permiten números negativos.");
-            } else if (num1 < 100 || num1 > 999) {
-                System.out.println("Debe tener exactamente 3 cifras (entre 100 y 999).");
+                if (num1 < 0) {
+                    System.out.println("No se permiten números negativos.");
+                } else if (num1 < 100 || num1 > 999) {
+                    System.out.println("Debe tener exactamente 3 cifras (entre 100 y 999).");
+                } else {
+                    repetir = false; // ya es correcto → salimos del bucle
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Error: debes introducir un número entero.");
+                teclado.next(); // limpia el valor no válido
             }
-        } while (num1 < 100 || num1 > 999);
+        }
 
         //validar num2
-        do {                                                        //repite el numero hasta que cumpla las condiciones
-            System.out.print("Introduce el multiplicador (3 cifras): ");
-            num2 = teclado.nextInt();
+        repetir = true;
+        while (repetir) {
+            try {
+                System.out.print("Introduce el multiplicador (3 cifras): ");
+                num2 = teclado.nextInt();
 
-            if (num2 < 0) {                                         //condicion numero positivo
-                System.out.println("No se permiten números negativos.");
-            } else if (num2 < 100 || num2 > 999) {                  //condicion 3cifras
-                System.out.println("Debe tener exactamente 3 cifras (entre 100 y 999).");
+                if (num2 < 0) {
+                    System.out.println("No se permiten números negativos.");
+                } else if (num2 < 100 || num2 > 999) {
+                    System.out.println("Debe tener exactamente 3 cifras (entre 100 y 999).");
+                } else {
+                    repetir = false;
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Error: debes introducir un número entero.");
+                teclado.next();
             }
-        } while (num2 < 100 || num2 > 999);
+        }
 
 
         //Descomponer cifras
@@ -59,7 +76,7 @@ public class Multiplicacion3Cifras {
         System.out.println( ("     " + num1 * izquierda) );
         System.out.println("___________");
 
-        System.out.println(num1 * num2);
+        System.out.println("   " + (num1 * num2));
 
     }
 }
