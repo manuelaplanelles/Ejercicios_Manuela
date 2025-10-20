@@ -56,20 +56,6 @@ public class NumerodelaSuerte {
 
         // Realizamos el cálculo del número de la suerte
 
-        // Sumamos día + mes + año
-        int suma = dia + mes + anyio;
-        System.out.println(dia + "+" + mes + "+" + anyio + " = " + suma);
 
-        // Sumamos las cifras de 'suma' y lo mostramos
-        int suerte = 0;
-        while (suma > 0) {
-            suerte = suerte + (suma % 10);  // sumamos la última cifra
-            suma = suma / 10;               // eliminamos la última cifra
-        }
-
-        // 3. Mostramos el resultado final
-        System.out.println();
-        System.out.println("Día: " + dia + "  Mes: " + mes + "  Año: " + anyio);
-        System.out.println("Número de la suerte: " + suerte);
     }
 }
