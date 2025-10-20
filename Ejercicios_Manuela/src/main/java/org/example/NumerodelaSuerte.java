@@ -1,61 +1,49 @@
+package org.example;
 import java.util.Scanner;
-import java.util.InputMismatchException;
 public class NumerodelaSuerte {
-
     public static void main(String[] args) {
 
         Scanner teclado = new Scanner(System.in);
-        boolean valido = false;                             //controlamos que el valor sea correcto
-        int dia = 0, mes = 0, anyio = 0;                    //variables
+
+        System.out.println("Introduce tu fecha de nacimineto (dd/mm/aaaa)");
+
+        String fecha = teclado.nextLine();
+
+        if (fecha.length() == 10 && fecha.charAt(2) == '/' && fecha.charAt(5) == '/') { // tipo de formato fecha aaaa/dd/mm
+
+            try {                                                                       // convertimos a numero entero
+                int dia = Integer.parseInt(fecha.substring(0, 2));
+                int mes = Integer.parseInt(fecha.substring(3, 5));
+                int anyo = Integer.parseInt(fecha.substring(6, 10));
+
+                if (dia >= 1 && dia <= 31 && mes >= 1 && mes <= 12) {                       // marcamos la cantidad y posiciones de la fecha
+                    int total = dia + mes + anyo;
+
+                    System.out.println(fecha + " = " + total);
+
+                    String Suerte = Integer.toString(total);
+
+                    int cifra1 = Integer.parseInt(Suerte.substring(0, 1));
+                    int cifra2 = Integer.parseInt(Suerte.substring(1, 2));
+                    int cifra3 = Integer.parseInt(Suerte.substring(2, 3));
+                    int cifra4 = Integer.parseInt(Suerte.substring(3, 4));
 
 
-        while (valido == false) {                           // Repetimos mientras la fecha no sea válida
-                                                            // Pedimos la fecha al usuario en formato dd/mm/aaaa
-            System.out.print("Introduce tu fecha de nacimiento (dd/mm/aaaa): ");
-            String fecha = teclado.nextLine();
+                    int total2 = cifra1 + cifra2 + cifra3 + cifra4;                     // calculamos el numero de la suerte
 
-            try {
-                                                            // Verificamos si la cadena contiene "/"
-                if (fecha.contains("/") == false) {
-                    System.out.println("Error: formato incorrecto. Usa dd/mm/aaaa.");
-                    continue;
-                }
-                                                            // Dividimos el texto en 3 partes: día, mes y año
-                String[] partes = fecha.split("/");
-
-                                                            // Comprobamos que existan exactamente tres partes
-                if (partes.length != 3) {
-                    System.out.println("Error: formato incompleto. Usa dd/mm/aaaa.");
-                    continue;
-                }
-
-                                                            // Convertimos cada parte del texto a número entero
-                dia = Integer.parseInt(partes[0]);
-                mes = Integer.parseInt(partes[1]);
-                anyio = Integer.parseInt(partes[2]);
-
-                                                            // Verificamos que no haya ceros o números negativos
-                if (dia <= 0 || mes <= 0 || anyio <= 0) {
-                    System.out.println("No se permiten valores negativos ni ceros.");
-                    continue;
+                    System.out.println(cifra1 + "+" + cifra2 + "+" + cifra3 + "+" + cifra4 + " = " + total2);
+                    System.out.println(" Tu numero de la suerte es el " + total2);
+                } else {
+                    System.out.println(" ERROR: Introduce una fecha válida... ");       // si el formato no se cumple
                 }
 
-                                                            // Comprobamos que el día y el mes estén en rangos válidos
-                if (dia > 31 || mes > 12) {
-                    System.out.println("Día o mes fuera de rango.");
-                    continue;
-                }
-
-                                                            // Si todas las condiciones son correctas, la fecha es válida
-                valido = true;
-
-            } catch (NumberFormatException e) {             // Si el usuario introduce letras u otros símbolos, mostramos error
-                System.out.println("Error: introduce solo números en el formato dd/mm/aaaa.");
+            } catch (
+                    Exception err) {                                                     // si introduce un valor inadecuado
+                System.out.println(" ERROR: Introduce el formato correctamente ");
             }
+
+        } else {                                                                          // si introduce numero negrativo
+            System.out.println(" ERROR: Introduce el formato correctamente... ");
         }
-
-        // Realizamos el cálculo del número de la suerte
-
-
     }
 }
