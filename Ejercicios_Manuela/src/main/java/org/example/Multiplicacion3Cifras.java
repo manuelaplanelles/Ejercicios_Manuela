@@ -71,9 +71,9 @@ public class Multiplicacion3Cifras {
         System.out.println("x     " + num2);
         System.out.println("___________");
 
-        System.out.println( ("     " + num1 * derecha) );
-        System.out.println( ("     " + num1 * centro) );
-        System.out.println( ("     " + num1 * izquierda) );
+        System.out.println( ("     " + num1 * derecha)  );
+        System.out.println( ("    " + num1 * centro) + "-");
+        System.out.println( ("   " + num1 * izquierda) + "--");
         System.out.println("___________");
 
         System.out.println("   " + (num1 * num2));
