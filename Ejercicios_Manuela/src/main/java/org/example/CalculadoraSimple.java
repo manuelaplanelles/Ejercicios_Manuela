@@ -16,15 +16,17 @@ public class CalculadoraSimple {
         System.out.println("***** BIENVENIDO A LA CALCULADORA RÁPIDA *****");
 
         // Leer primer número (con control de errores)
-
+        do {
             System.out.print("Introduce el primer número: ");
             if (teclado.hasNextDouble()) {
                 num1 = teclado.nextDouble();
-                valido = true;
+                valido = true; // Si es válido, cambiamos el valor de "valido" para salir del bucle
             } else {
                 System.out.println("Valor no válido. Introduce un número.");
-                teclado.next();
+                teclado.next(); // Limpiar entrada incorrecta
             }
+        } while (!valido); // Continuar hasta que el valor sea válido
+
 
         // Mostrar menú de operaciones
         System.out.println("------------------------------");
@@ -44,21 +46,21 @@ public class CalculadoraSimple {
         if (signo != 'r') {
             valido = false; // reiniciamos la validación
 
-           System.out.print("Introduce el segundo número: ");
-                if (teclado.hasNextDouble()) {
-                    num2 = teclado.nextDouble();
+            System.out.print("Introduce el segundo número: ");
+            if (teclado.hasNextDouble()) {
+                num2 = teclado.nextDouble();
 
-                    // Control: evitar dividir entre cero
-                    if (signo == '/' && num2 == 0) {
-                        System.out.println("No se puede dividir entre 0.");
-                    } else {
-                        valido = true;
-                    }
-
+                // Control: evitar dividir entre cero
+                if (signo == '/' && num2 == 0) {
+                    System.out.println("No se puede dividir entre 0.");
                 } else {
-                    System.out.println("Valor no válido. Introduce un número.");
-                    teclado.next(); // limpia el valor incorrecto
+                    valido = true;
                 }
+
+            } else {
+                System.out.println("Valor no válido. Introduce un número.");
+                teclado.next(); // limpia el valor incorrecto
+            }
 
         }
 
