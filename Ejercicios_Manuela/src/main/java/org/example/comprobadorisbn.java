@@ -4,6 +4,9 @@ public class comprobadorisbn {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
 
+        //Variable menú
+        int opcion;
+
         // Mensaje de bienvenida
         System.out.println("***** COMPROBADOR DE ISBN *****");
 
@@ -14,17 +17,32 @@ public class comprobadorisbn {
         System.out.println("[3] --> Salir del programa");
         System.out.println("------------------------------");
 
-        //variable
-
-
-        System.out.println("Introduce ISBN");
-        String isbn = teclado.nextLine();
         do {
-            if (isbn.length()==10){
-                continue;
+            System.out.println("Selecciona una opción: ");
+            opcion = teclado.nextInt();
+            teclado.nextLine();
 
-            }else{
-                System.out.println("El ISBN mo es válido");
+            if (opcion == 1){
+                System.out.println("Introduce ISBN: ");
+                String isbn = teclado.nextLine();
+
+                //comprobamos que tiene 10 cracteres
+                if (isbn.length()==10){
+                    System.out.println("Error: El ISBN debe tener 10 digitos");
+                }else{
+                    //calculo
+                    int suma = 0;
+                    boolean esValido=true;
+
+                    for (int i = 0; i <10; i++){
+                        char caracter =isbn.charAt(i);
+                    }
+            }
+
+
+
+
+
 
             }
 
