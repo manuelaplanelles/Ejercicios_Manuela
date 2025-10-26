@@ -30,13 +30,11 @@ public class comprobadorisbn {
                         System.out.print("Introduce ISBN (10 caracteres): ");
                         String isbn = teclado.nextLine();
                         String isbnMayus = isbn.toUpperCase();
-
                         // Comprobar longitud
                         if (isbnMayus.length() != 10) {
                             System.out.println("ERROR: Debe tener 10 caracteres");
                             break;
                         }
-
                         // Calcular suma
                         int suma = 0;
                         boolean todoCorrecto = true;
@@ -70,13 +68,10 @@ public class comprobadorisbn {
                             int resultado = valor * multiplicador;
                             suma = suma + resultado;
 
-                            // Mostrar calculo (opcional, para ver el proceso)
-                            System.out.println(valor + " x " + multiplicador + " = " + resultado);
                         }
 
                         // Mostrar resultado final
                         if (todoCorrecto == true) {
-                            System.out.println("Suma total: " + suma);
 
                             if (suma % 11 == 0) {
                                 System.out.println("ISBN VALIDO");
@@ -196,7 +191,7 @@ public class comprobadorisbn {
 
 
                     case 3:                                                         // CASO 3: SALIR
-                        System.out.println("\nGracias por usar el validador de ISBN");
+                        System.out.println("Gracias por usar el validador de ISBN");
                         System.out.println("Hasta pronto!");
                         break;
 
@@ -212,7 +207,6 @@ public class comprobadorisbn {
                 teclado.nextLine();
                 opcion = 0; // Para no salir del menu
             }
-
         } while (opcion != 3);
     }
 }
