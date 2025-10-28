@@ -29,10 +29,10 @@ public class comprobadorisbn {
                         System.out.println("--- VALIDAR ISBN ---");
                         System.out.print("Introduce ISBN (10 caracteres): ");
                         String isbn = teclado.nextLine();
-                        String isbnMayus = isbn.toUpperCase();
+                        String mayus = isbn.toUpperCase();
 
                         // Comprobar longitud
-                        if (isbnMayus.length() != 10) {
+                        if (mayus.length() != 10) {
                             System.out.println("ERROR: Debe tener 10 caracteres");
                         }
 
@@ -41,7 +41,7 @@ public class comprobadorisbn {
                         boolean correcto = true;
 
                         for (int posicion = 0; posicion < 10; posicion = posicion + 1) {
-                            char letra = isbnMayus.charAt(posicion);
+                            char letra = mayus.charAt(posicion);
                             int multiplicador = 10 - posicion;
                             int valor = 0;
 
